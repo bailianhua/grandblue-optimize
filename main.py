@@ -11,15 +11,6 @@ crit_rate_increase = 0.19
 crit_damage_increase = 0.35
 total_items = 4
 
-def total_damage(items):
-    x, y, z = items
-
-    total_base_damage = base_damage * (1 + base_damage_increase * z)
-    total_crit_rate = crit_rate_base + crit_rate_increase * x
-    total_crit_damage = crit_damage_base + crit_damage_increase * y
-
-    return -total_base_damage * (1 + total_crit_rate * (total_crit_damage - 1))
-
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -29,6 +20,7 @@ def index():
         crit_damage_base = (225 + int(request.form['crit_damage_base'])) / 100
         total_items = int(request.form['total_items'])
         print(base_damage, crit_rate_base, crit_damage_base, total_items)
+
         def total_damage(items):
             x, y, z = items
             total_base_damage = base_damage * (1 + base_damage_increase * z)
@@ -42,13 +34,14 @@ def index():
                 total_items - sum(items),
                 1 - (crit_rate_base + (crit_rate_increase * x)),
                 0.7 - (base_damage_increase * z),
-                0.5 - ( crit_rate_increase * x), 
+                0.5 - (crit_rate_increase * x),
                 0.5 - (crit_damage_increase * y)
             ]
 
         initial_guess = [0, 0, 0]
-        result = minimize(total_damage, initial_guess, constraints={'type': 'ineq', 'fun': constraints}, bounds=[
-                          (0, None), (0, None), (0, None)], options={'integer_tol': 1e-7})
+        bounds = [(0, 3), (0, 2), (0, 2)]
+        result = minimize(total_damage, initial_guess, constraints={
+                          'type': 'ineq', 'fun': constraints}, bounds=bounds, method='SLSQP')
         optimal_crit_rate_items = round(result.x[0])
         optimal_crit_damage_items = round(result.x[1])
         optimal_base_damage_items = round(result.x[2])

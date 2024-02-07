@@ -56,16 +56,20 @@
             </li>
             <li class="text-gray-600 text-xs italic">
                 **based on dummy not actual fight** base crit damage = 225% of base damage </li>
+            <li class="text-gray-600 text-xs italic">
+                the number of sigil might not add up to the total available sigil slots, if that's the case it means
+                that the number of effect already reach cap (ie. max crit damage%) consider add other sigil for maximum
+                utility </li>
         </ol>
         <div class="border-2 border-blue-500 p-4 rounded mb-4">
             <p>Optimal number of crit rate items: {{ optimal_crit_rate_items }}</p>
             <p>Optimal number of crit damage items: {{ optimal_crit_damage_items }}</p>
             <p>Optimal number of base damage items: {{ optimal_base_damage_items }}</p>
-            <p>Optimal number of DMG cap: {{ optimal_cap }}</p>
             <p>Maximized total damage (without cap): {{ maximized_total_damage }}</p>
         </div>
         <a id="openModal"
-            class="btn cursor-pointer bg-yellow-500 hover:bg-yellow-700 text-white font-bold mt-4 py-2 px-4 rounded">Sigil Note</a>
+            class="btn cursor-pointer bg-yellow-500 hover:bg-yellow-700 text-white font-bold mt-4 py-2 px-4 rounded">Sigil
+            Note</a>
         <div id="myModal" class="modal">
             <div class="modal-content">
                 <span class="close">&times;</span>
