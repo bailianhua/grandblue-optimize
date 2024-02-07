@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Optimization Input</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .vertical-center {
+            display: flex;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 p-10">
+    <h2 class="text-2xl font-bold mb-4">Enter character values:</h2>
+    <form method="post" action="/" class="max-w-md mx-auto">
+        <div class="mb-4">
+            <label for="base_damage" class="block text-gray-700">Base Damage character info screen:</label>
+            <input type="text" id="base_damage" name="base_damage" value="10000"
+                class="w-full border-2 border-gray-300 p-2">
+        </div>
+        <div class="mb-4">
+            <label for="crit_rate_base" class="block text-gray-700">Current crit rate from character info screen:</label>
+            <div class="flex">
+                <input type="text" id="crit_rate_base" name="crit_rate_base" value="50"
+                    class="w-full border-2 border-gray-300 p-2">
+                <span class="ml-2 vertical-center">%</span>
+            </div>
+        </div>
+        <div class="mb-4">
+            <label for="crit_damage_base" class="block text-gray-700">Current Crit damage from equipment:</label>
+            <div class="flex">
+                <input type="text" id="crit_damage_base" name="crit_damage_base" value="15"
+                    class="w-full border-2 border-gray-300 p-2">
+                <span class="ml-2 vertical-center">%</span>
+            </div>
+        </div>
+        <div class="mb-4">
+            <label for="crit_damage_base" class="block text-gray-700">Total sigil slot available:</label>
+            <div class="flex">
+                <input type="text" id="total_items" name="total_items" value="4"
+                    class="w-full border-2 border-gray-300 p-2">
+                <span class="ml-2 vertical-center">slot</span>
+            </div>
+        </div>
+        <input type="submit" value="Submit"
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+    </form>
+</body>
+
+</html>

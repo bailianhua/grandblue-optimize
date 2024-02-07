@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Optimization Result</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 p-10">
+    <div class="max-w-md mx-auto">
+        <h2 class="text-2xl font-bold">Optimization Result:</h2>
+        <ol class="text-gray-600 text-xs italic list-decimal mt-2 mb-2">
+            <li class="text-gray-600 text-xs italic">
+                This is a demonstration of optimization results and may not reflect actual game performance.
+            </li>
+            <li class="text-gray-600 text-xs italic">
+                Assuming sigil at max level (15)
+            </li>
+            <li class="text-gray-600 text-xs italic">
+                formula : <br> finalDamage = base_damage * (1 + (crit_rate/100) * ((crit_damage/100) - 1))
+            </li>
+            <li class="text-gray-600 text-xs italic">
+                **based on dummy not actual fight** base crit damage = 225% of base damage </li>
+        </ol>
+        <div class="border-2 border-blue-500 p-4 rounded mb-4">
+            <p>Optimal number of crit rate items: {{ optimal_crit_rate_items }}</p>
+            <p>Optimal number of crit damage items: {{ optimal_crit_damage_items }}</p>
+            <p>Optimal number of base damage items: {{ optimal_base_damage_items }}</p>
+            <p>Optimal number of DMG cap: {{ optimal_cap }}</p>
+            <p>Maximized total damage (without cap): {{ maximized_total_damage }}</p>
+        </div>
+        <a id="openModal"
+            class="btn cursor-pointer bg-yellow-500 hover:bg-yellow-700 text-white font-bold mt-4 py-2 px-4 rounded">Sigil Note</a>
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <ul>
+                    <li>base_damage_increase = 50% per stamina V cap at 70% </li>
+                    <li>crit_rate_increase = 19% per Critical Hit Rate V cap at 50% </li>
+                    <li>crit_damage_increase = 35% per Critical Hit DMG V cap at 50%</li>
+                </ul>
+            </div>
+        </div>
+        <a href="/" class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold mt-4 py-2 px-4 rounded"> Go back </a>
+    </div>
+    <script>
+        // Open modal
+        document.getElementById('openModal').onclick = function () {
+            document.getElementById('myModal').style.display = "block";
+        }
+        // Close modal
+        document.getElementsByClassName('close')[0].onclick = function () {
+            document.getElementById('myModal').style.display = "none";
+        }
+    </script>
+</body>
+
+</html>
