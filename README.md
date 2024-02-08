@@ -2,6 +2,10 @@
 
 This Flask web application is designed to optimize damage for a gaming scenario based on user input. It uses the `scipy.optimize` library to find the optimal distribution of items to maximize damage output.
 
+## prerequisites
+Python
+Pip (optional)
+
 ## Installation
 
 1. Clone the repository to your local machine.
