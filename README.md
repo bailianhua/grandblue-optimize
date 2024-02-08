@@ -1,6 +1,6 @@
 # Damage Optimization App
 
-This Flask web application is designed to optimize damage for a gaming scenario based on user input. It uses the `scipy.optimize` library to find the optimal distribution of items to maximize damage output.
+This web application is designed to optimize damage for a scenario based on user input.
 
 ## prerequisites
 1. Python
@@ -21,7 +21,7 @@ This Flask web application is designed to optimize damage for a gaming scenario 
 
 ## Configuration
 
-You can adjust the default parameters such as `base_damage`, `crit_rate_base`, `crit_damage_base`, `base_damage_increase`, `crit_rate_increase`, `crit_damage_increase`, and `total_items` in the `main.py` file to customize the application for your specific scenario..
+You can adjust the default parameters such as `damage_item`, `crit_rate_item`, `crit_dmg_item`, `crit_damage_base` in the `main.py` file to customize the application for your specific scenario.
 
 ## License
 

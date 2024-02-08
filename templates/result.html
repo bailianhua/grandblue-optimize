@@ -48,6 +48,9 @@
             <li class="text-gray-600 text-xs italic">
                 This is a demonstration of optimization results and may not reflect actual game performance.
             </li>
+            <li>
+                only support Stamina,Critical Hit Rate, Critical Hit DMG for now
+            </li>
             <li class="text-gray-600 text-xs italic">
                 Assuming sigil at max level (15)
             </li>
@@ -57,9 +60,7 @@
             <li class="text-gray-600 text-xs italic">
                 **based on dummy not actual fight** base crit damage = 225% of base damage </li>
             <li class="text-gray-600 text-xs italic">
-                the number of sigil might not add up to the total available sigil slots, if that's the case it means
-                that the number of effect already reach cap (ie. max crit damage%) consider add other sigil for maximum
-                utility </li>
+                base damage still didn't calculate correctly (recommend to remove all Stamina sigil to get the correct number )</li>
         </ol>
         <div class="border-2 border-blue-500 p-4 rounded mb-4">
             <p>Optimal number of crit rate items: {{ optimal_crit_rate_items }}</p>
@@ -68,8 +69,8 @@
             <p>Maximized total damage (without cap): {{ maximized_total_damage }}</p>
         </div>
         <div class="border-2 border-blue-500 p-4 rounded mb-4">
-            <p>Total crit rate: {{ crit_rate * 100 }}%</p>
-            <p>Total crit DMG: {{ crit_damage * 100 }}%</p>
+            <p>Total crit rate: {{ crit_rate  }}%</p>
+            <p>Total crit DMG: {{ crit_damage  }}%</p>
             <p>Total base damage: {{ total_base_damage }}</p>
         </div>
         <a id="openModal"
