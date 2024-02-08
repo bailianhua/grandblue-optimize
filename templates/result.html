@@ -67,6 +67,11 @@
             <p>Optimal number of base damage items: {{ optimal_base_damage_items }}</p>
             <p>Maximized total damage (without cap): {{ maximized_total_damage }}</p>
         </div>
+        <div class="border-2 border-blue-500 p-4 rounded mb-4">
+            <p>Total crit rate: {{ crit_rate * 100 }}%</p>
+            <p>Total crit DMG: {{ crit_damage * 100 }}%</p>
+            <p>Total base damage: {{ total_base_damage }}</p>
+        </div>
         <a id="openModal"
             class="btn cursor-pointer bg-yellow-500 hover:bg-yellow-700 text-white font-bold mt-4 py-2 px-4 rounded">Sigil
             Note</a>
